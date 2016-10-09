@@ -26,7 +26,6 @@ function calc(){
             }
             else {
                 obj[i].style.top= (1)*$length+"px";
-
             }
         }
 
