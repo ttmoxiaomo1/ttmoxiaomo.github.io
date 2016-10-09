@@ -25,7 +25,7 @@ function calc(){
                 obj[i].style.top= (-20)*$length+"px";
             }
             else {
-                obj[i].style.top= (-1)*$length+"px";
+                obj[i].style.top= (1)*$length+"px";
 
             }
         }
