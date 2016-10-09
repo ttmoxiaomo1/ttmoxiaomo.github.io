@@ -21,7 +21,13 @@ function calc(){
         var obj= document.getElementsByTagName("ul")[0].getElementsByTagName("li");
         var $objlen=obj.length;
         for(var i=0;i<$objlen;i++){
-            obj[i].style.top= (-20)*$length+"px";
+            if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
+                obj[i].style.top= (-20)*$length+"px";
+            }
+            else {
+                obj[i].style.top= (-1)*$length+"px";
+
+            }
         }
 
         console.log(obj[0].style.top);
