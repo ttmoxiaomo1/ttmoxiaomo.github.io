@@ -11,25 +11,38 @@ function calc(){
         var e = event || window.event;
 //获取滚动距离(FF每次滚动 data为3或者-3，其他为120或者-120)
         var data = e.detail || e.wheelDelta;
-        $length += data;
-        console.log(data,$length);
-//当鼠标开始往下滚动时候;隐藏头部
-        if(data>0){
-            document.getElementById("header").style.top="-80px";
-        }
         var $ul= document.getElementsByTagName("ul");
+        var $ulH=window.innerHeight;
+
         var obj= document.getElementsByTagName("ul")[0].getElementsByTagName("li");
         var $objlen=obj.length;
-        for(var i=0;i<$objlen;i++){
-            if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
-                obj[i].style.top= (-20)*$length+"px";
-            }
-            else {
-                obj[i].style.top= (1)*$length+"px";
+        $length += data;
+        //console.log($ulH);
+        var $dieline=obj[$objlen-1].offsetTop;
+
+        console.log($dieline)
+        if($dieline>0){
+
+        }
+        if ($length<0){
+            //当鼠标开始往下滚动时候;隐藏头部
+            document.getElementById("header").style.top="-80px";
+            for(var i=0;i<$objlen;i++){
+                if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
+                    obj[i].style.top= (-20)*$length+"px";
+                }
+                else {
+                    obj[i].style.top= (1)*$length+"px";
+                }
             }
         }
-
-        console.log(obj[0].style.top);
+        if ($length==0){
+            document.getElementById("header").style.top="0px";
+        }
+        if($length>0){
+            document.getElementById("header").style.top="0px";
+            $length=0;
+        }
     }
 //IE之外的绑定事件方法
     if(document.addEventListener && !document.attachEvent)
