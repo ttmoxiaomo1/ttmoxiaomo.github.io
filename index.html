@@ -7,29 +7,44 @@
     <meta name='apple-mobile-web-app-capable' content='yes'/>
     <!--消除iphone自动将数字转化为拨号的功能-->
     <meta name='format-detection' content='telephone=no'/>
-    <title>Title</title>
-    <link href="css/common.css" rel="stylesheet"/>
-    <link href="css/small.css" rel="stylesheet"/>
-    <link href="css/Rasterize.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/myscss.css">
+    <title>Player</title>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
+
 </head>
 <body>
-<!--     <header id="header">
-    </header> -->
-    <div class='wraper'>
-        <ul class="main-box">
-            <li style="background: #168fdc;width: 100%;height: 100%;">
+<audio src="Conor%20Maynard,Alan%20Walker,ANTH%20-%20Faded%20(Conor%20Maynard%20Cover).mp3" loop="loop" autoplay="autoplay" controls="controls"></audio>
+<div id="box-time">
+    <span id="jindutiao"></span>
+</div>
+<div id="pause">pause</div>
+<script>
+    //    createloading();
+    var audio=document.getElementsByTagName("audio");
+    console.log(audio)
+    clearInterval()
+    var aa=function(){
+        var $allTime=(audio[0].duration);
+        var $currentTime=(audio[0].currentTime);
+        var $width=$currentTime/$allTime*100+"%";
+        $("#jindutiao").css("width",$width)
+    }
+    setInterval(aa,1);
+    $("#pause").click(function(){
+        if(audio[0]!==null){
+            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.<span style="font-family: Arial, Helvetica, sans-serif;">在播放器暂停时返回true</span>
 
-            </li>
-            <li style="background: #e1e1e1;width: 100%;height: 100%;">
-
-            </li>
-        </ul>
-
-    </div>
-    <footer>
-        这是底部区域！！！
-    </footer>
+            if(!audio[0].paused)
+            {
+                audio[0].pause();// 这个就是暂停//audio.play();// 这个就是播放
+                $(this).html("start")
+            }
+            else {
+                audio[0].play();
+                $(this).html("pause")
+            }
+        }
+    })
+</script>
 </body>
 </html>
