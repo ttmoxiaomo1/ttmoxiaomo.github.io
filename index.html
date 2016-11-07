@@ -28,8 +28,9 @@
     //    createloading();
     var audio=document.getElementsByTagName("audio");
     console.log(audio)///[0-1]
-    clearInterval()
+
     var aa=function(){
+        clearInterval()
         var $allTime=(audio[0].duration);
         var $currentTime=(audio[0].currentTime);
         var $width=$currentTime/$allTime*100+"%";
@@ -65,8 +66,9 @@
         var $current=$(".currentL").css("height");
         var $voice=parseFloat($current)/parseFloat($total)
         audio[0].volume=$voice;
+        clearInterval()
     }
-//    setInterval(changeVoice,1000);
+    setInterval(changeVoice,5);
 
     $(document).bind('touchmove',function(e){
         var e = e || window.event; //浏览器兼容性
@@ -75,7 +77,6 @@
         var $mytag2=".currentL"
         if($(elem).is($mytag)||$(elem).is($mytag2)) {
             var $newHeight=$(".voice")[0].offsetTop- e.changedTouches[0].clientY;
-
             if($newHeight>160){
                 return
             }
@@ -83,7 +84,6 @@
                 $(".currentL").css("height",$newHeight);
                 console.log($newHeight)
             }
-            changeVoice();
         }
     });
 
