@@ -1,6 +1,9 @@
 audio {
   display: none; }
 
+body {
+  animation: change 10s infinite ease-in-out; }
+
 #pause {
   width: 8em;
   height: 8em;
@@ -8,10 +11,11 @@ audio {
   text-align: center;
   line-height: 8em;
   font-size: 20px;
-  animation: change 8s infinite ease-in-out;
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
   outline: none;
   position: absolute;
-  color: #ffffff;
+  color: #000;
   bottom: 5%;
   left: 50%;
   margin-left: -4em; }

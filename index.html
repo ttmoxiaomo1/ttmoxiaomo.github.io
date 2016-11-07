@@ -13,7 +13,10 @@
 
 </head>
 <body>
-<audio id="myAd"  loop="loop" controls="controls">
+<canvas>
+    不支持哦！！！
+</canvas>
+<audio id="myAd">
     <source src="Conor%20Maynard,Alan%20Walker,ANTH%20-%20Faded%20(Conor%20Maynard%20Cover).mp3" type="audio/mpeg" />
 </audio>
 <div></div>
@@ -29,6 +32,7 @@
 <script>
     //    createloading();
     var audio=document.getElementById("myAd");
+    var myAudio=document.getElementsByTagName("audio")
     clearInterval($a);
     var aa=function(){
         var $allTime=(audio.duration);
@@ -38,26 +42,16 @@
     }
     var $a=setInterval(aa,1);
     $("#pause").click(function(){
-        if(audio.ended==true){
-            alert("--")
-        }
-        else {
-            if(audio!==null){
-                //检测播放是否已暂停.audio.paused 在播放器播放时返回false.<span style="font-family: Arial, Helvetica, sans-serif;">在播放器暂停时返回true</span>
-                if(audio.ended==false){
-                    if(!audio.paused)
-                    {
-                        audio.pause();// 这个就是暂停//audio.play();// 这个就是播放
-                        $(this).html("start")
-                    }
-                    else {
-                        audio.play();
-                        $(this).html("pause")
-                    }
-                }
-                if(audio.ended==true) {
-                    console.log(audio)
-                }
+        if(audio!==null){
+            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.<span style="font-family: Arial, Helvetica, sans-serif;">在播放器暂停时返回true</span>
+            if(audio.paused)
+            {
+                audio.play();
+                $(this).html("pause")
+            }
+            else {
+                audio.pause();// 这个就是暂停//audio.play();// 这个就是播放
+                $(this).html("start")
             }
         }
     })
@@ -83,7 +77,9 @@
             }
         }
     });
-
+    audio.addEventListener("ended",function(){
+        console.log(audio)
+    })
 </script>
 </body>
 </html>
