@@ -5,9 +5,13 @@ audio{
   width: 8em;
   height: 8em;
   border-radius: 50%;
-  animation: change 3s infinite ease-in-out;
+  text-align: center;
+  line-height: 8em;
+  font-size: 20px;
+  animation: change 8s infinite ease-in-out;
   outline: none;
   position: absolute;
+  color: #ffffff;
   bottom: 5%;
   left: 50%;
   margin-left: -4em;
@@ -29,33 +33,44 @@ audio{
 }
 @keyframes change {
   0%{
-    border-left: 1px solid red;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
+    background: #d25055;
   }
   25%{
-    border-left: none;
-    border-top: 1px solid red;
-    border-right: none;
-    border-bottom: none;
+    background: red;
+
   }
   50%{
-    border-left: none;
-    border-top: none;
-    border-right: 1px solid red;
-    border-bottom: none;
+    background: rebeccapurple;
+
   }
   75%{
-    border-left: none;
-    border-top: none;
-    border-right: none;
-    border-bottom: 1px solid red;
+    background: royalblue;
+
   }
   100%{
-    border-left: 1px solid red;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
+    background: #d25055;
+  }
+}
+.voice{
+  width: 3em;
+  height: 3em;
+  background: #8c8c8c;
+  position: absolute;
+  bottom: 10%;
+  right: 0.5em;
+  .voiceLen{
+    width: 1em;
+    height: 10em;
+    background: #ccc;
+    position: absolute;
+    top: -10em;
+    left: 1em;
+    .currentL{
+      width: 100%;
+      height: 5em;
+      background: red;
+      position: absolute;
+      bottom: 0;
+    }
   }
 }
