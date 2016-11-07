@@ -30,11 +30,11 @@
     console.log(audio)///[0-1]
 
     var aa=function(){
-        clearInterval()
         var $allTime=(audio[0].duration);
         var $currentTime=(audio[0].currentTime);
         var $width=$currentTime/$allTime*100+"%";
         $("#jindutiao").css("width",$width);
+        clearInterval(aa);
     }
 //    if(callback != undefined){
         var   is_playFinish = setInterval(function(){
