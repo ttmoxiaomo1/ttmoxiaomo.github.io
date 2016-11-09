@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="css/myscss.css">
     <title>Player</title>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-
 </head>
 <body>
 <canvas>
     不支持哦！！！
 </canvas>
-<audio id="myAd">
+<audio id="myAd" autoplay="true" loop="true">
     <source src="Conor%20Maynard,Alan%20Walker,ANTH%20-%20Faded%20(Conor%20Maynard%20Cover).mp3" type="audio/mpeg" />
 </audio>
 <div></div>
@@ -78,7 +77,8 @@
         }
     });
     audio.addEventListener("ended",function(){
-        console.log(audio)
+        audio.play();
+        console.log("执行了")
     })
 </script>
 </body>
